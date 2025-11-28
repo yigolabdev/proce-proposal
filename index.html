@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proce (프로스) - Strategic Intelligence Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'Noto Sans KR', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                50: '#f0f9ff',
+                100: '#e0f2fe',
+                500: '#0ea5e9',
+                600: '#0284c7',
+                900: '#0c4a6e',
+                950: '#082f49',
+              },
+              accent: {
+                purple: '#8b5cf6',
+                cyan: '#06b6d4',
+              }
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.8s ease-out',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'flow-right': 'flowRight 2s linear infinite',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              flowRight: {
+                '0%': { transform: 'translateX(-100%)', opacity: '0' },
+                '50%': { opacity: '1' },
+                '100%': { transform: 'translateX(100%)', opacity: '0' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #020617;
+        color: #f8fafc;
+        overflow-x: hidden;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #475569; 
+      }
+
+      /* Slide Reveal Animation */
+      .reveal-content {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        filter: blur(10px);
+      }
+      
+      section.active .reveal-content {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+
+      @media print {
+        @page {
+          /* 1920px x 1080px @ 96dpi = 20in x 11.25in */
+          size: 20in 11.25in;
+          margin: 0;
+        }
+        
+        html {
+          font-size: 16px !important;
+          width: 20in !important;
+          min-width: 20in !important;
+        }
+
+        body {
+          width: 20in !important;
+          min-width: 20in !important;
+          background-color: #020617 !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        #root {
+          width: 20in !important;
+          min-width: 20in !important;
+        }
+
+        /* Target the App component's main container */
+        #root > div {
+          width: 20in !important;
+          min-width: 20in !important;
+          position: static !important;
+        }
+
+        #slide-container {
+          display: block !important;
+          transform: none !important;
+          width: 20in !important;
+          min-width: 20in !important;
+        }
+
+        section {
+          width: 20in !important;
+          height: 11.25in !important;
+          page-break-after: always !important;
+          break-after: page !important;
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+          
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: center !important;
+          
+          overflow: hidden !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          
+          position: relative !important;
+        }
+
+        .reveal-content {
+          opacity: 1 !important;
+          transform: none !important;
+          filter: none !important;
+          width: 100% !important;
+          height: 100% !important;
+        }
+
+        /* Hide UI elements */
+        .fixed, button[aria-label="Print"] {
+          display: none !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
